@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ksiegarnia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body style="background-color:black">
+<div class="jumbotron" style="background-color:black">
+    <center><h1 style="color:white" class="display-4"><font face="Courier New"><font size="7">Tylko najlepsze
+        książki!</font></font></h1></center>
+    <br>
+    <center><p align="justify" style="color:white" class="lead"><font face="Courier New"><font size="5">Księgarnia
+        internetowa "Książka dla każdego" oferuje bogaty wybór najnowszych książek, publikacje znanych autorów,
+        bestsellery i klasykę literatury. Liczne promocje i rabaty sięgające nawet 50% umożliwiają zakup wielu topowych
+        pozycji w bardzo korzystnych cenach. Niepodważalną zaletą księgarni jest również darmowa dostawa w 24
+        godziny.</font></font></p></center>
+    <hr class="my-4">
+    <center><img
+            src="https://ocdn.eu/pulscms-transforms/1/Wt-ktkqTURBXy81M2M4MjAwMzY4ZDgyMTkwNjc4NzFhZWI0MzU0ZGJlZi5qcGVnk5UDAHnNHMDNECyTBc0DFM0BvJUH2TIvcHVsc2Ntcy9NREFfLzIzMzdjOWZkNmI5MzFlZTZjYjBkMjNkY2JhMjU4YTlkLnBuZwDCAA"/>
+    </center>
+    <br>
+    <br>
+    <p style="color:white"> Nasza aktualna oferta:</p>
+    <ul class="list-unstyled" th:remove="all-but-first">
+        <li class="media" th:each="book: ${books}">
+            <div th:switch="${book.cover}">
+                <img class="mr-3" src="../static/img/Pielewin.jpg"
+                     th:src="@{/img/Pielewin.jpg}"
+                     th:case="Pielewin">
+                <img class="mr-3" src="../static/img/McCarty.jpg"
+                     th:src="@{/img/McCarthy.jpg}"
+                     th:case="McCarthy">
+                <img class="mr-3" src="../static/img/Jordan.jpg"
+                     th:src="@{/img/Jordan.jpg}"
+                     th:case="Jordan">
+                <img class="mr-3" src="../static/img/King.jpg"
+                     th:src="@{/img/King.jpg}"
+                     th:case="King">
+                <img class="mr-3" src="../static/img/Ketchum.jpg"
+                     th:src="@{/img/Ketchum.jpg}"
+                     th:case="Ketchum">
+            </div>
+            <div class="media-body">
+                <h5 style="color:white" class="mt-0 mb-1" th:text="${book.author}">Pielewin Wiktor</h5>
+                <h6 style="color:white" th:text="|Tytuł: ${book.title}|">Empire V</h6>
+                <h6 style="color:white" th:text="|Gatunek: ${book.genre}|">Obyczaj</h6>
+            </div>
+        </li>
+        <li class="media my-4">
+            <img class="mr-3" src="" alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1">List-based media object</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+                odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+                fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+        </li>
+        <li class="media">
+            <img class="mr-3" src=".../64x64" alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1">List-based media object</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+                odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+                fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+        </li>
+    </ul>
+    <br>
+    <center>
+
+        <button type="button" class="btn btn-primary">Obyczaj</button>
+        <button type="button" class="btn btn-secondary">Kryminał</button>
+        <button type="button" class="btn btn-success">Horror</button>
+        <button type="button" style="background-color:red" class="btn btn-danger">Fantasy</button>
+        <button type="button" class="btn btn-warning">Science Fiction</button>
+        <button type="button" class="btn btn-info">Klasyka</button>
+        <button type="button" class="btn btn-light">Podręczniki</button>
+        <button type="button" class="btn btn-dark">Popularnonaukowe</button>
+    </center>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>
