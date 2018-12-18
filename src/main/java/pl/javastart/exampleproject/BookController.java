@@ -47,7 +47,6 @@ public class BookController {
         List<Book> booksByGenre = bookRepository.findByGenre(genre);
         model.addAttribute("booksG", booksByGenre);
         return "SortedList";
-
     }
 
     @GetMapping("/usuń")
@@ -69,8 +68,8 @@ public class BookController {
     }
 
     @PostMapping("/edit")
-    public String editBook() {
-        bookRepository.editList();
+    public String editBook(Book book) {
+        bookRepository.editBook(book);
         return "redirect:/";
     }
 }

@@ -1,6 +1,6 @@
 package pl.javastart.exampleproject;
 
-import org.apache.catalina.User;
+
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -37,17 +37,22 @@ public class BookRepository {
         return query.getResultList();
     }
 
+    @Transactional
     public void deleteByTitle(String title) {
         String jpql = "delete from Book d where d.title=:title";
-        Query query = entityManager.createQuery(jpql, Book.class);
+        Query query = entityManager.createQuery(jpql);
         query.setParameter("title", title);
         query.executeUpdate();
     }
 
-    public void editList() {
-        String jpql = "update from Book";
-        Query query = entityManager.createQuery(jpql, Book.class);
-        query.executeUpdate();
+    @Transactional
+    public void editBook(Book book) {
+        Book existingBook = entityManager.find(Book.class, book.getId());
+        existingBook.setTitle(book.getTitle());
+        existingBook.setAuthor(book.getAuthor());
+        existingBook.setGenre(book.getGenre());
+        existingBook.setCover(book.getCover());
+        entityManager.persist(existingBook);
     }
 }
 

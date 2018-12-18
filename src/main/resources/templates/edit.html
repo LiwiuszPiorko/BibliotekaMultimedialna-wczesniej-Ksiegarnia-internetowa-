@@ -10,22 +10,22 @@
 <div class="container">
     <h1 style="color:white"><font face="Courier New"><font size="7">Edytuj książkę:</font></font></h1>
     <br>
-    <form th:object="${bookE}" method="post" th:action="@{/edytuj}">
+    <form method="post" th:action="@{/edit}">
         <div class="form-group">
             <label style="color:white" for="authorInput"><font face="Courier New"><font size="4">Autor:</font></font></label>
-            <input th:field="*{author}" type="text" class="form-control" id="authorInput" placeholder="Autor">
+            <input  name="author" type="text" class="form-control" id="authorInput" placeholder="Autor">
         </div>
         <div class="form-group">
             <label style="color:white" for="tileInput"><font face="Courier New"><font size="4">Tytuł:</font></font></label>
-            <input th:field="*{title}" type="text" class="form-control" id="tileInput" placeholder="Tytuł">
+            <input name="title" type="text" class="form-control" id="tileInput" placeholder="Tytuł">
         </div>
         <div class="form-group">
             <label style="color:white" for="genreInput"><font face="Courier New"><font size="4">Gatunek:</font></font></label>
-            <input th:field="*{genre}" type="text" class="form-control" id="genreInput" placeholder="Gatunek">
+            <input name="genre" type="text" class="form-control" id="genreInput" placeholder="Gatunek">
         </div>
         <div class="form-group">
             <label style="color:white" for="coverImage"><font face="Courier New"><font size="4">Okładka:</font></font></label>
-            <input th:field="*{cover}" type="image" class="form-control" id="coverImage" placeholder="Zdjęcie okładki">
+            <input name="cover" type="text" class="form-control" id="coverImage" placeholder="Zdjęcie okładki">
         </div>
         <button type="submit" class="btn btn-primary">Edytuj książkę</button>
     </form>
