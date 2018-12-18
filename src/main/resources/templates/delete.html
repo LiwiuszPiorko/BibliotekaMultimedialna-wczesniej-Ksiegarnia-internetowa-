@@ -5,11 +5,11 @@
     <title>Usuwanie pozycji z oferty</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-<body style="background-color:red">
+<body style="background-color:black">
 <div class="container">
     <h1 style="color:white"><font face="Courier New"><font size="7">Usuń książkę:</font></font></h1>
 <br>
-<form th:object="${bookD}" method="post" th:action="@{/usuń}">
+<form th:object="${bookD}" method="get" th:action="@{/usuń}">
     <div class="form-group">
         <label style="color:white" for="tileInput"><font face="Courier New"><font size="4">Tytuł:</font></font></label>
         <input th:field="*{title}" type="text" class="form-control" id="tileInput" placeholder="Tytuł">

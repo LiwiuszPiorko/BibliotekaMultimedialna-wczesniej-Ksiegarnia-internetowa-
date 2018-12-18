@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -36,16 +37,17 @@ public class BookRepository {
         return query.getResultList();
     }
 
-    public List<Book> deleteByTitle(String title) {
-        String jpql = "delete from Book t where t.title=:title";
-        TypedQuery<Book> query = entityManager.createQuery(jpql, Book.class);
+    public void deleteByTitle(String title) {
+        String jpql = "delete from Book d where d.title=:title";
+        Query query = entityManager.createQuery(jpql, Book.class);
         query.setParameter("title", title);
-        return query.getResultList();
+        query.executeUpdate();
     }
-    public List<Book> editList() {
-        String jpql = "update e from Book e";
-        TypedQuery<Book> query = entityManager.createQuery(jpql, Book.class);
-        return query.getResultList();
+
+    public void editList() {
+        String jpql = "update from Book";
+        Query query = entityManager.createQuery(jpql, Book.class);
+        query.executeUpdate();
     }
 }
 

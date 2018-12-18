@@ -61,13 +61,15 @@ public class BookController {
         bookRepository.deleteByTitle(title);
         return "redirect:/";
     }
+
     @GetMapping("/edytuj")
     public String edit(Model model) {
         model.addAttribute("bookE", new Book());
         return "edit";
     }
-    @PostMapping("/save")
-    public String editBook(Book book) {
+
+    @PostMapping("/edit")
+    public String editBook() {
         bookRepository.editList();
         return "redirect:/";
     }
