@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytowanie pozycji</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body style="background-color:green">
+<div class="container">
+    <h1 style="color:white"><font face="Courier New"><font size="7">Edytuj książkę:</font></font></h1>
+    <br>
+    <form th:object="${bookE}" method="post" th:action="@{/edytuj}">
+        <div class="form-group">
+            <label style="color:white" for="authorInput"><font face="Courier New"><font size="4">Autor:</font></font></label>
+            <input th:field="*{author}" type="text" class="form-control" id="authorInput" placeholder="Autor">
+        </div>
+        <div class="form-group">
+            <label style="color:white" for="tileInput"><font face="Courier New"><font size="4">Tytuł:</font></font></label>
+            <input th:field="*{title}" type="text" class="form-control" id="tileInput" placeholder="Tytuł">
+        </div>
+        <div class="form-group">
+            <label style="color:white" for="genreInput"><font face="Courier New"><font size="4">Gatunek:</font></font></label>
+            <input th:field="*{genre}" type="text" class="form-control" id="genreInput" placeholder="Gatunek">
+        </div>
+        <div class="form-group">
+            <label style="color:white" for="coverImage"><font face="Courier New"><font size="4">Okładka:</font></font></label>
+            <input th:field="*{cover}" type="image" class="form-control" id="coverImage" placeholder="Zdjęcie okładki">
+        </div>
+        <button type="submit" class="btn btn-primary">Edytuj książkę</button>
+    </form>
+</div>
+</body>
+</html>

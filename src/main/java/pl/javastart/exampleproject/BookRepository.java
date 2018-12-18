@@ -1,5 +1,6 @@
 package pl.javastart.exampleproject;
 
+import org.apache.catalina.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -24,8 +25,27 @@ public class BookRepository {
         return query.getResultList();
     }
 
-    public Book findByGenre(String genre) {
-        return entityManager.find(Book.class, genre);
+    public Book findById(Long id) {
+        return entityManager.find(Book.class, id);
     }
 
+    public List<Book> findByGenre(String genre) {
+        String jpql = "select g from Book g where g.genre=:genre";
+        TypedQuery<Book> query = entityManager.createQuery(jpql, Book.class);
+        query.setParameter("genre", genre);
+        return query.getResultList();
+    }
+
+    public List<Book> deleteByTitle(String title) {
+        String jpql = "delete from Book t where t.title=:title";
+        TypedQuery<Book> query = entityManager.createQuery(jpql, Book.class);
+        query.setParameter("title", title);
+        return query.getResultList();
+    }
+    public List<Book> editList() {
+        String jpql = "update e from Book e";
+        TypedQuery<Book> query = entityManager.createQuery(jpql, Book.class);
+        return query.getResultList();
+    }
 }
+
