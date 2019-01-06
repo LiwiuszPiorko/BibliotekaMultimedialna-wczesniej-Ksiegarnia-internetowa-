@@ -26,9 +26,14 @@ public class BookRepository {
         return query.getResultList();
     }
 
-    public Book findById(Long id) {
-        return entityManager.find(Book.class, id);
+    public Book findByAuthor(String author) {
+        String jpql = "select s from Book s where s.author like :author";
+        TypedQuery<Book> query = entityManager.createQuery(jpql, Book.class);
+        query.setParameter("author", author);
+        return query.getSingleResult();
+
     }
+
 
     public List<Book> findByGenre(String genre) {
         String jpql = "select g from Book g where g.genre=:genre";
@@ -48,8 +53,8 @@ public class BookRepository {
     @Transactional
     public void editBook(Book book) {
         Book existingBook = entityManager.find(Book.class, book.getId());
-        existingBook.setTitle(book.getTitle());
         existingBook.setAuthor(book.getAuthor());
+        existingBook.setTitle(book.getTitle());
         existingBook.setGenre(book.getGenre());
         existingBook.setCover(book.getCover());
         entityManager.persist(existingBook);

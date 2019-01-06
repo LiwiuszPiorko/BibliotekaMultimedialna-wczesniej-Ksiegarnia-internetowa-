@@ -36,11 +36,13 @@ public class BookController {
     }
 
     @GetMapping("/singleBook")
-    public String singleBook(@RequestParam Long id, Model model) {
-        Book book = bookRepository.findById(id);
+    public String singleBook(@RequestParam String author, Model model) {
+        Book book = bookRepository.findByAuthor(author);
         model.addAttribute("book", book);
         return "singleBook";
     }
+
+
 
     @GetMapping("category")
     public String showCategory(@RequestParam String genre, Model model) {
