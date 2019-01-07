@@ -52,7 +52,7 @@
                      th:case="Sanderson">
             </div>
             <div class="media-body">
-                <h5 style="color:white" class="mt-0 mb-1" th:text="${book.author}">Pielewin Wiktor</h5>
+                <a th:href="@{|/singleBook?author=${book.author}|}"  style="color:white" class="mt-0 mb-1" th:text="${book.author}">Pielewin Wiktor</a>
                 <h6 style="color:white" th:text="|Tytuł: ${book.title}|">Empire V</h6>
                 <h6 style="color:white" th:text="|Gatunek: ${book.genre}|">Obyczaj</h6>
             </div>
