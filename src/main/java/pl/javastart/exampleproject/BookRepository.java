@@ -34,14 +34,12 @@ public class BookRepository {
 
     }
 
-
     public List<Book> findByGenre(String genre) {
         String jpql = "select g from Book g where g.genre=:genre";
         TypedQuery<Book> query = entityManager.createQuery(jpql, Book.class);
         query.setParameter("genre", genre);
         return query.getResultList();
     }
-
     @Transactional
     public void deleteByTitle(String title) {
         String jpql = "delete from Book d where d.title=:title";
@@ -49,7 +47,6 @@ public class BookRepository {
         query.setParameter("title", title);
         query.executeUpdate();
     }
-
     @Transactional
     public void editBook(Book book) {
         Book existingBook = entityManager.find(Book.class, book.getId());

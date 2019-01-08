@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logowanie do strony</title>
+</head>
+<body  style="background-color:black">
+<div style="width: 300px; margin: auto; margin-top: 100px; textalign:
+center">
+    <h1 style="color:white" ><font face="Courier New"><font size="5">Zaloguj się!</font></font></h1>
+    <form th:action="/login" method="post">
+        <p style="color:white" ><font face="Courier New"><font size="3">Nazwa użytkownika:</font></font></p>
+        <input type="text" name="username"/>
+        <p style="color:white" ><font face="Courier New"><font size="3">Hasło:</font></font></p>
+        <input type="password" name="password"/><br>
+        <br>
+
+        <input type="submit" value="Zaloguj"/>
+    </form>
+</div>
+
+</body>
+</html>
