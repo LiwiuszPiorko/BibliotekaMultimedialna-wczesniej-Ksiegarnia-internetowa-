@@ -8,7 +8,7 @@
 <div style="width: 300px; margin: auto; margin-top: 100px; textalign:
 center">
     <h1 style="color:white" ><font face="Courier New"><font size="5">Zaloguj się!</font></font></h1>
-    <form th:action="/login" method="post">
+    <form action="processlogin" th:action="@{/processlogin}" method="post">
         <p style="color:white" ><font face="Courier New"><font size="3">Nazwa użytkownika:</font></font></p>
         <input type="text" name="username"/>
         <p style="color:white" ><font face="Courier New"><font size="3">Hasło:</font></font></p>
