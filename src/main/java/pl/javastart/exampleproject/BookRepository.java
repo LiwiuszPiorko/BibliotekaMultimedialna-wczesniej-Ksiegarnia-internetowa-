@@ -21,7 +21,7 @@ public class BookRepository {
     }
 
     public List<Book> findAll() {
-        String jpql = "select b from Book b order by b.author desc";
+        String jpql = "select b from Book b order by b.score desc";
         TypedQuery<Book> query = entityManager.createQuery(jpql, Book.class);
         return query.getResultList();
     }

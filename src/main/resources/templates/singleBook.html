@@ -11,6 +11,7 @@
     <h1 style="color:white" class="mt-0 mb-1" th:text="${book.author}">Pielewin Wiktor</h1>
     <h2 style="color:white" th:text="|Tytuł: ${book.title}|">Empire V</h2>
     <h3 style="color:white" th:text="|Gatunek: ${book.genre}|">Obyczaj</h3>
+    <h6 style="color:white" th:text="|Ocena: ${book.score}|">5</h6>
     <div th:switch="${book.cover}">
         <img class="mr-3" src="../static/img/Pielewin.jpg"
              th:src="@{/img/Pielewin.jpg}"

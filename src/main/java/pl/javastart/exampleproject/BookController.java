@@ -40,7 +40,7 @@ public class BookController {
     @PostMapping("/zapisz")
     public String saveBook(Book book) {
         bookRepository.save(book);
-        return "redirect:/";
+        return "redirect:MainSite";
     }
     @GetMapping("/singleBook")
     public String singleBook(@RequestParam String author, Model model) {
@@ -62,7 +62,7 @@ public class BookController {
     @PostMapping("/delete")
     public String deleteBook(@RequestParam String title) {
         bookRepository.deleteByTitle(title);
-        return "redirect:/";
+        return "redirect:MainSite";
     }
     @GetMapping("/edytuj")
     public String edit(Model model) {
@@ -72,6 +72,6 @@ public class BookController {
     @PostMapping("/edit")
     public String editBook(Book book) {
         bookRepository.editBook(book);
-        return "redirect:/";
+        return "redirect:MainSite";
     }
 }

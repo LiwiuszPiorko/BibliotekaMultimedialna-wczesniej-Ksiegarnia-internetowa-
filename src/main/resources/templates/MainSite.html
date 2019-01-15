@@ -47,9 +47,12 @@
                      th:case="Sanderson">
             </div>
             <div class="media-body">
-                <a th:href="@{|/singleBook?author=${book.author}|}"  style="color:white" class="mt-0 mb-1" th:text="${book.author}">Pielewin Wiktor</a>
+
+                <h6><a th:href="@{|/singleBook?author=${book.author}|}" style="color:white" class="mt-0 mb-1" th:text="|Autor: ${book.author}">Pielewin Wiktor</a></h6>
                 <h6 style="color:white" th:text="|Tytuł: ${book.title}|">Empire V</h6>
                 <h6 style="color:white" th:text="|Gatunek: ${book.genre}|">Obyczaj</h6>
+                <h6 style="color:white" th:text="|Ocena: ${book.score}|">5</h6>
+                <h6 style="color:white" th:text="|Id: ${book.id}|">1</h6>
             </div>
         </li>
         <li class="media my-4">
